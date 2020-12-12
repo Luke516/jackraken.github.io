@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>資訊安全&lt;駭客入侵&gt; | 愚人隨筆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="這裡要分享的是在這學期的資訊安全課程裡，跟駭客入侵有關的作業心得。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="資訊安全&lt;駭客入侵&gt;">
+<meta property="og:url" content="2014/11/22/information-security-hacker/index.html">
+<meta property="og:site_name" content="愚人隨筆">
+<meta property="og:description" content="這裡要分享的是在這學期的資訊安全課程裡，跟駭客入侵有關的作業心得。">
+<meta property="og:locale">
+<meta property="og:image" content="http://i.imgur.com/8y65UOw.png">
+<meta property="og:image" content="http://i.imgur.com/THdbF8o.png">
+<meta property="og:image" content="http://i.imgur.com/NlRHaC8.png">
+<meta property="og:image" content="http://i.imgur.com/vGx0nUL.png?1">
+<meta property="og:image" content="http://i.imgur.com/EnnnxPd.png?1">
+<meta property="og:image" content="http://i.imgur.com/TXzFRVZ.png">
+<meta property="og:image" content="http://i.imgur.com/baEgyEP.png">
+<meta property="og:image" content="http://i.imgur.com/Sj2XPQq.png">
+<meta property="og:image" content="http://i.imgur.com/VYGl5cb.png">
+<meta property="og:image" content="http://i.imgur.com/rmPIBbk.png?1">
+<meta property="og:image" content="http://i.imgur.com/T7A2IwL.png?1">
+<meta property="og:image" content="http://i.imgur.com/vW9Wwnv.png?1">
+<meta property="article:published_time" content="2014-11-22T11:58:23.000Z">
+<meta property="article:modified_time" content="2020-12-10T02:05:12.098Z">
+<meta property="article:author" content="Luke">
+<meta property="article:tag" content="資訊安全">
+<meta property="article:tag" content="hacker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i.imgur.com/8y65UOw.png">
+  
+    <link rel="alternate" href="/atom.xml" title="愚人隨筆" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="css/style.css">
+
+  
+    
+<link rel="stylesheet" href="fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">愚人隨筆</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">真金不一定閃閃發光，並非浪子都迷失方向</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http:/jackraken.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-information-security-hacker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2014/11/22/information-security-hacker/" class="article-date">
+  <time class="dt-published" datetime="2014-11-22T11:58:23.000Z" itemprop="datePublished">2014-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="categories/資訊安全與駭客技巧/">資訊安全與駭客技巧</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      資訊安全&lt;駭客入侵&gt;
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>這裡要分享的是在這學期的資訊安全課程裡，跟駭客入侵有關的作業心得。</p>
+<a id="more"></a>
+
+<p>###作業一：stack buffer overflow###</p>
+<p>這個作業的內容就是要我們利用stack buffer overflow的技巧，讓老師給的執行檔輸出”Hacked!!”的字樣。</p>
+<p><a target="_blank" rel="noopener" href="https://trello.com/c/1UdUowfE/31-homework3">執行檔可在這裡下載</a></p>
+<p>這個執行檔是個叫做gets的ELF，在linux環境下才能執行。而檔名也明顯的提示我們程式內是用gets這個函式來達成overflow的目標。</p>
+<p>一開始(其實是老師的提示)，我們用objdump -M intel -d gets這個指令來觀察它：</p>
+<p><img src="http://i.imgur.com/8y65UOw.png" alt="反組譯的結果"></p>
+<p>從上圖我們可以看到，main跟hacked兩個函式。其實從這裡我們就可以很明顯的看出，hacked就是我們的目標函式，我們要做的就是用<br>buffer overflow設法讓main跳到hacked的位置。</p>
+<p>而從上圖也可以看到，hacked的位址在0804844d這個地方，因此我們就要用這個位址覆蓋過原本回傳的值。</p>
+<p>但在那之前，我們得先知道stack的大小來決定輸入的字串長度。因此，就暴力猜測，使用不同長度的輸入字串來觀察程式的反應。結果<br>發現大約長度在21、22個字元左右的字串，就會讓程式產生異常(21會卡住，22就記憶體區段錯誤)。因此，我們可以知道，我們要覆蓋<br>的值大約就在這個範圍左右。</p>
+<p>接著就來試試看吧！還記得hacked的位址是0804844d，因此我們關鍵的4個byte分別是4d、84、04、08(16進位)。注意因為stack的填入<br>順序是從右到左，所以順序是相反的。而因為裡面有些字是鍵盤打不出來的，所以再用一個小小的c程式產生我們input的字串。</p>
+<p>產生字串後，在前面填入不同長度的任意字串做測試，最後發現在總長度26時成功Hack！</p>
+<p><img src="http://i.imgur.com/THdbF8o.png" alt="成功Hack！"></p>
+<p>上面可以看到產生input的code，實際input的內容與程式印出Hacked！的字樣。不過因為正常的返回程序被破壞，程式最後還是會產生<br>記憶體區段錯誤的問題，無法避免。</p>
+<p>###作業二：SQL injection###</p>
+<p>第二項作業是要我們用SQL injection的方式，破解[redtiger hackit]或[hack this site]裡面的題目，由於兩題的內容其實非常類似<br>，因此這裡就用hack this site的內容做講解。</p>
+<p>首先大概提一下題目的內容(雖然不怎麼重要)：就是有個網站濫殺無辜的動物做成包包或皮鞋來賣，委託人拜託你駭入他們的網站取得<br>用戶的電子郵件，這樣他就可以發信告訴他們這個網站的惡行(當然，這個背景是虛構的XD)</p>
+<p>點進去他們的網站，可以看到如下的內容：</p>
+<p><img src="http://i.imgur.com/NlRHaC8.png" alt="fischer&#39;s animal products"></p>
+<p>我們可以看到有一欄可以輸入電子郵件，另外還有兩個連結。我們先隨便打個虛構的郵件名稱看看，輸入<a href="mailto:&#x31;&#50;&#51;&#x34;&#x35;&#64;&#x67;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x31;&#50;&#51;&#x34;&#x35;&#64;&#x67;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a>：</p>
+<p><img src="http://i.imgur.com/vGx0nUL.png?1" alt="登錄12345@gmail.com"></p>
+<p>登錄成功，沒有任何特別的事，檢查原始碼也看不出什麼端倪。</p>
+<p>試著輸入非法字元看看，輸入@@@@@@@@@@：</p>
+<p><img src="http://i.imgur.com/EnnnxPd.png?1" alt="登錄非法email"></p>
+<p>這裡我們知道了有個名叫email的table，但沒有其他特殊的訊息，從電子郵件這邊著手似乎行不通。</p>
+<p>那來試試看另外兩個連結吧！點進去第一個會看到如下的頁面：</p>
+<p><img src="http://i.imgur.com/TXzFRVZ.png" alt="毛皮大衣QWQ"></p>
+<p>這裡可以從URL看出是category的不同造成內容差異，那我們是否可以從這裡著手呢？</p>
+<p>為了測試SQL injection是否可行，我們先在網址後方加上” or 1=1”，結果：</p>
+<p><img src="http://i.imgur.com/baEgyEP.png" alt="加 or 1=1"></p>
+<p>神奇的事發生了，category=1和2的內容同時顯示出來，可見這個方向很有可能是正確的。</p>
+<p>這時候，我們剛剛知道的email這個table名就可以派上用場了。讓我們試試看union all這個指令能不能化腐朽為神奇吧。</p>
+<p>在原始網址的後方，讓我們加上” union all select 1,2,3,4 from email”看看會怎樣：</p>
+<p><img src="http://i.imgur.com/Sj2XPQq.png" alt="union"></p>
+<p>出現了神奇的東西！事實上，select 1,2,3,4 也是試了幾次才試出來的，因為我們知道，union必須在欄數箱等的情況下才能進行，<br>因此從1欄開始試，最後發現在4欄時網頁才能正確地顯示。</p>
+<p>現在我們已經找到了email這個table，離成功只剩一步之遙。從頁面的顯示情況我們可以發現，第2欄和第3欄的內容會以文字的方式<br>顯示出來。那麼，就讓我們把第二欄改成*看看吧！(也就是 union all select 1,*,3,4 from email)</p>
+<p><img src="http://i.imgur.com/VYGl5cb.png" alt="WOW"></p>
+<p>WOW！email就這樣跑出來了！任務成功！</p>
+<p>事實上，假如在試幾次會發現正確的欄名也叫email，但由於原始table似乎只有一欄，輸入*也可以得到email的結果。</p>
+<p>這裡列出幾個能injection成功的寫法：<br>union all select 1,email,3,4 from email<br>union all select 1,2,*,4 from email<br>union all select 1,*,*,4 from email<br>union all select NULL,*,*,NULL from email<br>其實只要讓第二欄或第三欄跑出email的值就好了(email或*都可以)，其他填任意數字都OK，而NULL也是一種保險的寫法。</p>
+<p>###其他###</p>
+<p>其實除了這題之外，我還跑去做了一些其他題目，還滿有意思的，在此附上成績圖：<br><img src="http://i.imgur.com/rmPIBbk.png?1" alt="hack this site"><br><img src="http://i.imgur.com/T7A2IwL.png?1" alt="hack this!!"><br><img src="http://i.imgur.com/vW9Wwnv.png?1" alt="WeChall總成績"></p>
+<p>###心得###</p>
+<p>經由這樣的練習，使我更了解所謂”駭客”實際上到底是在做什麼，又需要什麼樣的技巧。過程中因為缺乏經驗，往往卡了很久都理不出<br>頭緒，還要上網查別人的解法如何，才有恍然大悟的感覺。</p>
+<p>除此之外，我也了解SQL injection不過是駭客技巧的其中一種，駭客所需要的其實是相當廣泛的知識，包括資料庫、密碼學、腳本語言<br>甚至是網頁語法等等，唯有全面了解網站的架構，才有辦法看出漏洞。</p>
+<p>最後希望期末的專題可以做這個，感覺好有趣啊啊啊QWQ</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="2014/11/22/information-security-hacker/" data-id="ckim2d3u8001z7stugomx1lox" data-title="資訊安全&lt;駭客入侵&gt;" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/hacker/" rel="tag">hacker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/資訊安全/" rel="tag">資訊安全</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="2014/11/22/rock1-orange/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          若渴計畫參加心得&lt;一&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="2014/11/21/free-software5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">自由軟體與社群發展心得&lt;五&gt;</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/3D圖學、openGL與遊戲製作/">3D圖學、openGL與遊戲製作</a></li><li class="category-list-item"><a class="category-list-link" href="categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="categories/創作/">創作</a></li><li class="category-list-item"><a class="category-list-link" href="categories/廢文/">廢文</a></li><li class="category-list-item"><a class="category-list-link" href="categories/網路與部落格相關/">網路與部落格相關</a></li><li class="category-list-item"><a class="category-list-link" href="categories/自由軟體與社群/">自由軟體與社群</a></li><li class="category-list-item"><a class="category-list-link" href="categories/資料結構、演算法與ACM-ICPC/">資料結構、演算法與ACM-ICPC</a></li><li class="category-list-item"><a class="category-list-link" href="categories/資訊安全與駭客技巧/">資訊安全與駭客技巧</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="tags/ACM/" rel="tag">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/RMQ/" rel="tag">RMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/disjoint-set/" rel="tag">disjoint set</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/hacker/" rel="tag">hacker</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/maker/" rel="tag">maker</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/openGL/" rel="tag">openGL</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/strong-connected-vertex/" rel="tag">strong connected vertex</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/ㄘㄘㄏㄏ/" rel="tag">ㄘㄘㄏㄏ</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/割點/" rel="tag">割點</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/廢文/" rel="tag">廢文</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/研討會/" rel="tag">研討會</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/社群/" rel="tag">社群</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/自由軟體/" rel="tag">自由軟體</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/資訊安全/" rel="tag">資訊安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="tags/ACM/" style="font-size: 16px;">ACM</a> <a href="tags/RMQ/" style="font-size: 10px;">RMQ</a> <a href="tags/algorithm/" style="font-size: 18px;">algorithm</a> <a href="tags/c/" style="font-size: 10px;">c++</a> <a href="tags/disjoint-set/" style="font-size: 10px;">disjoint set</a> <a href="tags/hacker/" style="font-size: 12px;">hacker</a> <a href="tags/hexo/" style="font-size: 16px;">hexo</a> <a href="tags/java/" style="font-size: 10px;">java</a> <a href="tags/maker/" style="font-size: 12px;">maker</a> <a href="tags/openGL/" style="font-size: 14px;">openGL</a> <a href="tags/strong-connected-vertex/" style="font-size: 10px;">strong connected vertex</a> <a href="tags/ㄘㄘㄏㄏ/" style="font-size: 10px;">ㄘㄘㄏㄏ</a> <a href="tags/割點/" style="font-size: 10px;">割點</a> <a href="tags/廢文/" style="font-size: 12px;">廢文</a> <a href="tags/研討會/" style="font-size: 10px;">研討會</a> <a href="tags/社群/" style="font-size: 20px;">社群</a> <a href="tags/自由軟體/" style="font-size: 20px;">自由軟體</a> <a href="tags/資訊安全/" style="font-size: 10px;">資訊安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="2014/12/28/making-cookies/">如何製作巧克力餅乾</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/27/freesoftware-fontend/">自由軟體心得&lt;八&gt;字音字形離線版開發心得</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/25/MerryChristmas/">MerryChristmas~</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/22/UVA11235_RMQ/">UVA11235 - Frequent values</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/22/mySQLjdbc/">用JDBC連接mySQL和java</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 Luke<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

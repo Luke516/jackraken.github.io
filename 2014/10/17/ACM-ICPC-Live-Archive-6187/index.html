@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ACM-ICPC LiveArchive 6187 &lt;Never Wait for Weights&gt; | 愚人隨筆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="昨天去了ACM的團練，花了5個小時，一題都沒解出來……上次系內賽都墊底了(連NCPC都去不了)，這次也那麼慘，看來真的緒要加油了QQ，最近一整個很混。回去後至少拚了一題出來，其他題有空應該也會寫一寫吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACM-ICPC LiveArchive 6187 &lt;Never Wait for Weights&gt;">
+<meta property="og:url" content="2014/10/17/ACM-ICPC-Live-Archive-6187/index.html">
+<meta property="og:site_name" content="愚人隨筆">
+<meta property="og:description" content="昨天去了ACM的團練，花了5個小時，一題都沒解出來……上次系內賽都墊底了(連NCPC都去不了)，這次也那麼慘，看來真的緒要加油了QQ，最近一整個很混。回去後至少拚了一題出來，其他題有空應該也會寫一寫吧。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2014-10-17T14:52:55.000Z">
+<meta property="article:modified_time" content="2020-12-10T02:05:12.094Z">
+<meta property="article:author" content="Luke">
+<meta property="article:tag" content="algorithm">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="disjoint set">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="愚人隨筆" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="css/style.css">
+
+  
+    
+<link rel="stylesheet" href="fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">愚人隨筆</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">真金不一定閃閃發光，並非浪子都迷失方向</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http:/jackraken.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ACM-ICPC-Live-Archive-6187" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2014/10/17/ACM-ICPC-Live-Archive-6187/" class="article-date">
+  <time class="dt-published" datetime="2014-10-17T14:52:55.000Z" itemprop="datePublished">2014-10-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="categories/資料結構、演算法與ACM-ICPC/">資料結構、演算法與ACM-ICPC</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ACM-ICPC LiveArchive 6187 &lt;Never Wait for Weights&gt;
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>昨天去了ACM的團練，花了5個小時，一題都沒解出來……<br>上次系內賽都墊底了(連NCPC都去不了)，這次也那麼慘，看來真的緒要加油了QQ，最近一整個很混。<br>回去後至少拚了一題出來，其他題有空應該也會寫一寫吧。</p>
+<a id="more"></a>
+
+<p>###題目###</p>
+<p><a target="_blank" rel="noopener" href="https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=585&page=show_problem&problem=4198">點我看原始題目</a></p>
+<p>這裡稍微講下大意：</p>
+<p>題目一開始會給你兩個數字n和m，n代表有n個物品(從1到n)，m代表有m筆資料要你的程式來處理，<br>這m筆資料會用驚嘆號(!)或問號(?)開頭。</p>
+<p>如果驚嘆號開頭，會跟著三個數字，代表兩個物品間的重量關係，例如：<br>! 1 2 3<br>代表2號物品比1號物品重3單位。</p>
+<p>而如果問號開頭，會跟著兩個數字，代表你得輸出兩個物品間的關係，例如：<br>? 1 2<br>你就得輸出1號和2號物品的重量關係，假設你知道2號比1號重3單位，就輸出3，<br>若之前給的資料不足以讓你回答他們的關係，就輸出UNKNOWN。</p>
+<p>數字的範圍都在1到1,000,000之間。</p>
+<p>Sample Input</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">2 2</span><br><span class="line">! 1 2 1</span><br><span class="line">? 1 2</span><br><span class="line">2 2</span><br><span class="line">! 1 2 1</span><br><span class="line">? 2 1</span><br><span class="line">4 7</span><br><span class="line">! 1 2 100</span><br><span class="line">? 2 3</span><br><span class="line">! 2 3 100</span><br><span class="line">? 2 3</span><br><span class="line">? 1 3</span><br><span class="line">! 4 3 150</span><br><span class="line">? 4 1</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
+<p>Output for the Sample Input</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">-1</span><br><span class="line">UNKNOWN</span><br><span class="line">100</span><br><span class="line">200</span><br><span class="line">-50</span><br></pre></td></tr></table></figure>
+
+<p>###CODE###</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> root[<span class="number">100010</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> dif[<span class="number">100010</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> flag;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find_root</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">	<span class="keyword">int</span> r,rr,sum=<span class="number">0</span>;</span><br><span class="line">	r = a;</span><br><span class="line">	<span class="keyword">while</span>(root[r] != r)&#123;</span><br><span class="line">		q.push(r);</span><br><span class="line">		sum += dif[r];</span><br><span class="line">		r = root[r];</span><br><span class="line">	&#125;</span><br><span class="line">	rr = r;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		r = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		sum -= dif[r];</span><br><span class="line">		dif[r] += sum;</span><br><span class="line">		root[r] = rr; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> root[a];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> w)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ra,rb;</span><br><span class="line">	<span class="keyword">if</span>(find_root(a) == find_root(b))<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(root[a] == a)&#123;</span><br><span class="line">		root[a] = b;</span><br><span class="line">		dif[a] = w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(root[b] == b)&#123;</span><br><span class="line">		root[b] = a;</span><br><span class="line">		dif[b] = -w;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		rb = find_root(b);</span><br><span class="line">		ra = find_root(a);</span><br><span class="line">		root[rb] = ra;</span><br><span class="line">		dif[rb] = dif[a] - w - dif[b]; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	flag = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">return</span>  dif[a] - dif[b];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a,b,w,i,n,m,ans;</span><br><span class="line">	<span class="keyword">char</span> c;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;n,&amp;m)!=EOF)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">0</span> &amp;&amp; m==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			root[i] = i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">memset</span>(dif,<span class="number">0</span>,<span class="keyword">sizeof</span>(dif));</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot; %c&quot;</span>,&amp;c);</span><br><span class="line">			<span class="keyword">if</span>(c == <span class="string">&#x27;!&#x27;</span>)&#123;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>,&amp;a,&amp;b,&amp;w);</span><br><span class="line">				merge(a,b,w);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				flag = <span class="literal">false</span>;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">				<span class="keyword">if</span>(find_root(a) == find_root(b))ans = find(a,b);</span><br><span class="line">				<span class="keyword">if</span>(flag)<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">				<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;UNKNOWN\n&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###解題概念###</p>
+<p>團練當時我試圖用K次SPFA的最短路徑來求解，但是一直TLE，<br>後來才明白應該用disjoint set(並查集)的方法來做會比較有效率。</p>
+<p>簡單來說，一開始每個物品都是自己一個集合，也就是root[n] = n，這裡的root代表自己的上一層元素。<br>假設後來我知道了2號比1號重3單位，我就把2號和1號加到同一個集合裡，這時，我可以選擇讓root[1]=2<br>或root[2]=1，總之root[1]要等於root[2]，這樣就知道1號和2號是在同個集合裡了。</p>
+<p>再來，用dif這個陣列來存每個物品和root的重量差異，因為理論上在同個集合中的物品root會相等，所以<br>當題目問a和b的重量差時，如果a和b在同個集合中，就把dif<a href="a%E5%92%8Croot%E7%9A%84%E9%87%8D%E9%87%8F%E5%B7%AE">a</a>減掉dif[b](b和root的<br>重量差)，就可以知道a和b的重量差了。</p>
+<p>反之，若a和b不在同一個集合裡，就可以直接輸出UNKNOWN，因為兩者並不相關。</p>
+<p>比較複雜的演算法這裡就先不提(像是如何讓集合中的每個root一定相等)，有興趣或疑惑的可以上<a target="_blank" rel="noopener" href="http://www.csie.ntnu.edu.tw/~u91029/Set.html#4">演算法筆記</a><br>看看更詳細的資料~~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="2014/10/17/ACM-ICPC-Live-Archive-6187/" data-id="ckim2d3t1000w7stuaqm91y41" data-title="ACM-ICPC LiveArchive 6187 &lt;Never Wait for Weights&gt;" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/ACM/" rel="tag">ACM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/algorithm/" rel="tag">algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/disjoint-set/" rel="tag">disjoint set</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="2014/10/17/refelect-C4labs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          C4 Labs參加心得&lt;一&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="2014/10/15/9-openGLtutorial1-drawingTriangle/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">openGL教學&lt;二&gt; 繪製三角形</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/3D圖學、openGL與遊戲製作/">3D圖學、openGL與遊戲製作</a></li><li class="category-list-item"><a class="category-list-link" href="categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="categories/創作/">創作</a></li><li class="category-list-item"><a class="category-list-link" href="categories/廢文/">廢文</a></li><li class="category-list-item"><a class="category-list-link" href="categories/網路與部落格相關/">網路與部落格相關</a></li><li class="category-list-item"><a class="category-list-link" href="categories/自由軟體與社群/">自由軟體與社群</a></li><li class="category-list-item"><a class="category-list-link" href="categories/資料結構、演算法與ACM-ICPC/">資料結構、演算法與ACM-ICPC</a></li><li class="category-list-item"><a class="category-list-link" href="categories/資訊安全與駭客技巧/">資訊安全與駭客技巧</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="tags/ACM/" rel="tag">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/RMQ/" rel="tag">RMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/disjoint-set/" rel="tag">disjoint set</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/hacker/" rel="tag">hacker</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/maker/" rel="tag">maker</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/openGL/" rel="tag">openGL</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/strong-connected-vertex/" rel="tag">strong connected vertex</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/ㄘㄘㄏㄏ/" rel="tag">ㄘㄘㄏㄏ</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/割點/" rel="tag">割點</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/廢文/" rel="tag">廢文</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/研討會/" rel="tag">研討會</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/社群/" rel="tag">社群</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/自由軟體/" rel="tag">自由軟體</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/資訊安全/" rel="tag">資訊安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="tags/ACM/" style="font-size: 16px;">ACM</a> <a href="tags/RMQ/" style="font-size: 10px;">RMQ</a> <a href="tags/algorithm/" style="font-size: 18px;">algorithm</a> <a href="tags/c/" style="font-size: 10px;">c++</a> <a href="tags/disjoint-set/" style="font-size: 10px;">disjoint set</a> <a href="tags/hacker/" style="font-size: 12px;">hacker</a> <a href="tags/hexo/" style="font-size: 16px;">hexo</a> <a href="tags/java/" style="font-size: 10px;">java</a> <a href="tags/maker/" style="font-size: 12px;">maker</a> <a href="tags/openGL/" style="font-size: 14px;">openGL</a> <a href="tags/strong-connected-vertex/" style="font-size: 10px;">strong connected vertex</a> <a href="tags/ㄘㄘㄏㄏ/" style="font-size: 10px;">ㄘㄘㄏㄏ</a> <a href="tags/割點/" style="font-size: 10px;">割點</a> <a href="tags/廢文/" style="font-size: 12px;">廢文</a> <a href="tags/研討會/" style="font-size: 10px;">研討會</a> <a href="tags/社群/" style="font-size: 20px;">社群</a> <a href="tags/自由軟體/" style="font-size: 20px;">自由軟體</a> <a href="tags/資訊安全/" style="font-size: 10px;">資訊安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="2014/12/28/making-cookies/">如何製作巧克力餅乾</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/27/freesoftware-fontend/">自由軟體心得&lt;八&gt;字音字形離線版開發心得</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/25/MerryChristmas/">MerryChristmas~</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/22/UVA11235_RMQ/">UVA11235 - Frequent values</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/22/mySQLjdbc/">用JDBC連接mySQL和java</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 Luke<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

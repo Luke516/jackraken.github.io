@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>openGL教學&lt;一&gt; 認識openGL | 愚人隨筆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="##什麼是openGL？## 要學習openGL的第一步，當然得先了解openGL到底是什麼東西，所以就讓我們來看看openGL到底有什麼特質和用途吧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openGL教學&lt;一&gt; 認識openGL">
+<meta property="og:url" content="2014/09/17/openGL_basic/index.html">
+<meta property="og:site_name" content="愚人隨筆">
+<meta property="og:description" content="##什麼是openGL？## 要學習openGL的第一步，當然得先了解openGL到底是什麼東西，所以就讓我們來看看openGL到底有什麼特質和用途吧。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2014-09-16T22:50:08.000Z">
+<meta property="article:modified_time" content="2020-12-10T02:05:12.100Z">
+<meta property="article:author" content="Luke">
+<meta property="article:tag" content="openGL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="愚人隨筆" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="css/style.css">
+
+  
+    
+<link rel="stylesheet" href="fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">愚人隨筆</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">真金不一定閃閃發光，並非浪子都迷失方向</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http:/jackraken.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-openGL_basic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="2014/09/17/openGL_basic/" class="article-date">
+  <time class="dt-published" datetime="2014-09-16T22:50:08.000Z" itemprop="datePublished">2014-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="categories/3D圖學、openGL與遊戲製作/">3D圖學、openGL與遊戲製作</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      openGL教學&lt;一&gt; 認識openGL
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>##什麼是openGL？##</p>
+<p>要學習openGL的第一步，當然得先了解openGL到底是什麼東西，所以就讓我們來看看openGL到底有什麼特質和用途吧。</p>
+<a id="more"></a>
+
+<p>###openGL：一個繪圖用的應用程式介面(API)###</p>
+<p>openGL，全名是Open Graphics Library，是一個開放標準(open standard)的API，可以用來繪製2D與3D圖形。<br>它的特點是跨平台，並且雖然openGL是基於C語言，卻可以用其他語言實作(如 C#, Java, Lisp, Lua, Pascal,<br> Python, Ruby等)，並且配合硬體，強調硬體加速的特性。不過openGL有個限制就是它只負責繪圖，跟輸入、<br> 視窗、音訊或網路等功能完全無關，因此要用openGL開發程式者基本上會需要經常使用額外的函式庫來達到<br> 這些功能。</p>
+<p>與它主要的競爭對手:微軟的DirectX(簡稱DX)相比，DX只有在微軟的平台上才能使用，語言也受限制，並且DX<br>主要強調的是從硬體抽象化的概念，讓使用者不需硬體相關知識也可輕鬆使用。另外，DX除了繪圖，也另外包了<br>如聲音、視窗等功能。</p>
+<p>這樣看來，兩者似乎各有優缺點，但為何現今聽過DX的人仍佔大多數，甚至市面上絕大部分的(PC)遊戲也是用<br>DX寫出來的呢？這就不得不提一下openGL與它競爭者DX過去的歷史，以及造成這種現狀的原因，和未來發展的<br>可能性。</p>
+<p>###opneGL的(大略)歷史###</p>
+<p>事實上，在一段時間之前(約199X~2000年)，openGL還是3D繪圖的龍頭，獲得如雷神之槌(Quake)等知名遊戲<br>品牌的支持，但好景不常，決定openGL標準的OpenGL架構評審委員會（ARB）因為不同廠商利益的糾紛，使<br>openGL發展的腳步逐漸緩慢，而DX則在微軟大量資金的推動下迎頭趕上，在DirectX8的時候反超了openGL的<br>地位，並提出了當時創新的programmable GPU rendering pipeline来代替原有的fixed function pipeline<br>，引入了Vertex Shader和Pixel Shader，更在DirectX9推出了高階著色語言(HLSL)，領先了openGL2.0數年<br>的時間，也讓眾多廠商都在這段期間轉向DX的懷抱。</p>
+<p>直到2006年，ARB將openGL轉讓給了Khronos團隊，openGL的支持者們期望這新的開始能讓openGL迎頭趕上，<br>不過他們又失望了一次，Khronos到了2008年才推出openGL3.0，並且刪減了許多原先承諾的功能，使其評價<br>普遍不高。僅能勉強趕上DX10的功能。</p>
+<p>然而，近年來openGL的更新越來越頻繁，openGL ES也在移動裝置上取得了巨大的成功，並且隨著Linux和<br>OS X等非微軟作業系統的發展，openGL跨平台與硬體加速的特性再次受到重視。在2014遊戲開發者年會中<br>，AMD和NVIDIA的開發人員宣稱最新的openGL在一般的情況下就有比DX高1.3倍的效能，並且有更簡潔的程<br>式碼。</p>
+<p>現在openGL已經進入openGL4，DX12也指日可待，兩大繪圖API再次並駕齊驅。雖然現在遊戲界DX仍佔大多數<br>，但我個人認為openGL也已經成為了另一個合理的選擇，也希望這兩大繪圖API的競爭能帶給大家更好的圖像<br>和效能囉！</p>
+<p>###為何使用openGL###</p>
+<p>openGL的優點其實前面就大略提過了，這裡再稍微提一下：</p>
+<p>1.跨平台。</p>
+<p>2.支援多種語言。</p>
+<p>3.硬體加速。</p>
+<p>相對而言，它的缺點有；</p>
+<p>1.只有繪圖的功能，所有其他東西都需要外部的輔助</p>
+<p>2.有許多進階用途需要對硬體有一定程度的了解</p>
+<p>因為筆者本身是學資工的，周遭許多人也都使用linux或msc OS等作業系統，因此特別重視跨平台這塊，也才<br>選擇了openGL作為學習的目標。如果讀者還不知道要選擇什麼的話，從openGL開始或許也是個不錯的選擇！</p>
+<p>###openGL 3.0 之後###</p>
+<p>這裡特別提出一小段來說明openGL3.0版前後的差異，因為網路上現有的許多教學仍停留在3.0以前的<br>fixed pipeline版本，跟3.0之後主要用shader來著色的版本有相當的差異，簡單來說，舊的版本使用<br>固定渲染管線，彈性比較小，速度也比較慢，唯一的好處是使用起來比較簡單。在3.0之後許多舊版的<br>函式如glBegin(),glPerspective(),glVertex3f()等都已經不被包含在核心(core)版本裡，因此在網路<br>上查資料時最好注意一下openGL的版本，以免浪費時間學到許多不再實用的寫法，跟筆者之前犯下一樣<br>的錯誤QQ</p>
+<p>###其他輔助工具###</p>
+<p>最後在正式進入openGL的教學之前，稍微提一下我們可能會用到的輔助工具。就像上面提到的，openGL只有<br>最單純的繪圖功能，其他東西需要額外的工具，因此在這裡先介紹幾個之後可能會用到的東西：</p>
+<p>1.GLFW</p>
+<p>GLFW是一個提供基本輸入輸出支援的函式庫，它提供的功能像鍵盤與滑鼠的輸入、建立一個視窗等，並且<br>也可以跨平台使用。其實類似的東西不只GLFW，像是freeGLUT或SDL等工具其實也有相同的功能，有興<br>趣也可以上網看看相關的資訊。</p>
+<p>2.GLM</p>
+<p>GLM的M指的就是mathematic的意思，顧名思義，它是一個幫助我們進行數學運算的函式庫。由於openGL可能會<br>用到許多3D空間的運算，這類運算大多是向量或矩陣之間的數學運算，一般的程式碼寫起來可能有意點麻煩。<br>因此我們使用glm這個不錯的輔助工具，讓中間運算的過程更簡單易懂一點。舉例而言，像轉移矩陣或旋轉矩陣<br>、向量的加減乘除等都可利用glm以更簡單的方式完成~~</p>
+<p>3.GLEW</p>
+<p>GLEW可以算是是openGL的擴充，由於許多作業系統對openGL的支援可能都不是最新的版本，在這種情況下，<br>GLEW提供了我們最方便的方法來調用最新的openGL函式</p>
+<p>###最後###</p>
+<p>關於openGL的介紹就在這裡告一段落，看完應該可以對openGL有一些基本的了解吧！之後我們就要開始用C++<br>撰寫程式來使用openGL進行3D繪圖囉~~ QWQ</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="2014/09/17/openGL_basic/" data-id="ckim2d3vn00317stu0tmkhtst" data-title="openGL教學&lt;一&gt; 認識openGL" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/openGL/" rel="tag">openGL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="2014/09/22/8-reflect-of-maker-movie/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          電影講座 &lt;自造世代&gt; 參加心得~
+        
+      </div>
+    </a>
+  
+  
+    <a href="2014/07/29/6-topcoder2014taiwan/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">2014College Tour - 2014 Topcoder Taiwan Competition</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/3D圖學、openGL與遊戲製作/">3D圖學、openGL與遊戲製作</a></li><li class="category-list-item"><a class="category-list-link" href="categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="categories/創作/">創作</a></li><li class="category-list-item"><a class="category-list-link" href="categories/廢文/">廢文</a></li><li class="category-list-item"><a class="category-list-link" href="categories/網路與部落格相關/">網路與部落格相關</a></li><li class="category-list-item"><a class="category-list-link" href="categories/自由軟體與社群/">自由軟體與社群</a></li><li class="category-list-item"><a class="category-list-link" href="categories/資料結構、演算法與ACM-ICPC/">資料結構、演算法與ACM-ICPC</a></li><li class="category-list-item"><a class="category-list-link" href="categories/資訊安全與駭客技巧/">資訊安全與駭客技巧</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="tags/ACM/" rel="tag">ACM</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/RMQ/" rel="tag">RMQ</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/disjoint-set/" rel="tag">disjoint set</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/hacker/" rel="tag">hacker</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/maker/" rel="tag">maker</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/openGL/" rel="tag">openGL</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/strong-connected-vertex/" rel="tag">strong connected vertex</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/ㄘㄘㄏㄏ/" rel="tag">ㄘㄘㄏㄏ</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/割點/" rel="tag">割點</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/廢文/" rel="tag">廢文</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/研討會/" rel="tag">研討會</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/社群/" rel="tag">社群</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/自由軟體/" rel="tag">自由軟體</a></li><li class="tag-list-item"><a class="tag-list-link" href="tags/資訊安全/" rel="tag">資訊安全</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="tags/ACM/" style="font-size: 16px;">ACM</a> <a href="tags/RMQ/" style="font-size: 10px;">RMQ</a> <a href="tags/algorithm/" style="font-size: 18px;">algorithm</a> <a href="tags/c/" style="font-size: 10px;">c++</a> <a href="tags/disjoint-set/" style="font-size: 10px;">disjoint set</a> <a href="tags/hacker/" style="font-size: 12px;">hacker</a> <a href="tags/hexo/" style="font-size: 16px;">hexo</a> <a href="tags/java/" style="font-size: 10px;">java</a> <a href="tags/maker/" style="font-size: 12px;">maker</a> <a href="tags/openGL/" style="font-size: 14px;">openGL</a> <a href="tags/strong-connected-vertex/" style="font-size: 10px;">strong connected vertex</a> <a href="tags/ㄘㄘㄏㄏ/" style="font-size: 10px;">ㄘㄘㄏㄏ</a> <a href="tags/割點/" style="font-size: 10px;">割點</a> <a href="tags/廢文/" style="font-size: 12px;">廢文</a> <a href="tags/研討會/" style="font-size: 10px;">研討會</a> <a href="tags/社群/" style="font-size: 20px;">社群</a> <a href="tags/自由軟體/" style="font-size: 20px;">自由軟體</a> <a href="tags/資訊安全/" style="font-size: 10px;">資訊安全</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/12/">December 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2014/07/">July 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="2014/12/28/making-cookies/">如何製作巧克力餅乾</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/27/freesoftware-fontend/">自由軟體心得&lt;八&gt;字音字形離線版開發心得</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/25/MerryChristmas/">MerryChristmas~</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/22/UVA11235_RMQ/">UVA11235 - Frequent values</a>
+          </li>
+        
+          <li>
+            <a href="2014/12/22/mySQLjdbc/">用JDBC連接mySQL和java</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2020 Luke<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
